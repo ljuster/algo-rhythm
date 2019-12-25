@@ -1,11 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import moira1 from './moira1.jpg';
+import moira2 from './moira2.jpg';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   const [message, setMessage] = useState(null);
+  const [index, setIndex] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
   const [url, setUrl] = useState('/api');
+  const pics = [moira1, moira2];
+
+  setInterval(() => {
+    console.log(index)
+    setIndex((index > 0 ? 0 : 1));
+  }, 2000);
 
   const fetchData = useCallback(() => {
     fetch(url)
@@ -32,15 +41,17 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <img src={pics[index]} alt="moira" />
         <img src={logo} className="App-logo" alt="logo" />
-        { process.env.NODE_ENV === 'production' ?
-            <p>
-              This is a production build from create-react-app.
-            </p>
-          : <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-        }
+        <p>
+            Algo Rhythm <br />
+          10 <br />
+          101 <br />
+          1010 <br />
+          0101 <br />
+          101 <br />
+          01 <br />
+          </p>
         <p>{'« '}<strong>
           {isFetching
             ? 'Fetching message from API'

@@ -30,3 +30,48 @@
     transform: rotate(360deg);
   }
 }
+
+
+.pic {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  img {
+    width: 100px;
+    height: 100px;
+  };
+}
+
+.current {
+  left: 100px;
+}
+
+.current.move {
+  left: 0;
+  transition: all .5s ease;
+}
+
+.next {
+  left: 200px;
+}
+
+.next.move {
+  left: 100px;
+  transition: all .5s ease;
+}
+
+.pic-wrapper {
+  background: lightgray;
+  left: -100px;
+  position: absolute;
+
+}
+
+.mask {
+  left: 50px;
+  overflow: hidden;
+  width: 100px;
+  height: 120px;
+  position: absolute;
+}
